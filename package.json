@@ -1,0 +1,19 @@
+{
+  "name": "repo-time-machine-agent",
+  "version": "1.0.0",
+  "description": "AI agent that analyzes git history to explain how a project evolved over time.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "ask": "node src/index.js ask",
+    "demo": "node src/demo.js"
+  },
+  "dependencies": {
+    "simple-git": "^3.22.0",
+    "dotenv": "^16.4.5",
+    "node-fetch": "^2.7.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
