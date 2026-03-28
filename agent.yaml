@@ -1,41 +1,17 @@
-name: repo-time-machine-agent
-version: 1.0.0
-description: >
-  An AI agent that lives inside a Git repository and analyzes commit history
-  to explain how the project evolved over time. Acts as a senior software
-  architect who understands code evolution, architectural decisions, and risk.
-
-model: claude-sonnet-4-20250514
-
-runtime: gitclaw
-
+spec_version: "0.1.0"
+name: repo-time-machine
+version: 0.1.0
+description: "An AI agent that lives in a git repo and explains how the project evolved over time — like a senior architect reading the codebase's autobiography."
+model:
+  preferred: claude-sonnet-4-5-20250929
 skills:
-  - name: history-explainer
-    path: skills/history-explainer
-    description: Explain repository evolution by reading and grouping commit history into logical phases and milestones.
-
-  - name: bug-origin-finder
-    path: skills/bug-origin-finder
-    description: Identify which commit likely introduced a bug by analyzing risky changes and file churn patterns.
-
-  - name: architecture-evolution
-    path: skills/architecture-evolution
-    description: Understand how project structure changed over time, detecting major refactors and design pattern shifts.
-
-  - name: refactor-suggester
-    path: skills/refactor-suggester
-    description: Suggest refactoring opportunities based on git churn patterns, unstable modules, and repeated change hotspots.
-
-tools:
-  - git log
-  - git diff
-  - git blame
-  - git show
-  - git shortlog
-
+  - history-explainer
+  - bug-origin-finder
+  - architecture-evolution
+  - refactor-suggester
 tags:
   - git
   - code-analysis
   - architecture
   - history
-  - refactoring
+  - hackathon

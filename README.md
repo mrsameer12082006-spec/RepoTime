@@ -1,11 +1,15 @@
-# Repo Time Machine Agent
+\# Repo Time Machine Agent
 
-"I don't just read your commit history. I understand it."
+> *"I don't just read your commit history. I understand it."*
 
-A gitagent that lives inside any Git repository and analyzes how the project evolved over time. Acts as a senior software architect who can explain architectural decisions, trace bug origins, map structural evolution, and suggest targeted refactors — all grounded in actual git history.
+A gitagent that lives **inside any Git repository** and analyzes how the project evolved over time. Acts as a senior software architect who can explain architectural decisions, trace bug origins, map structural evolution, and suggest targeted refactors — all grounded in actual git history.
 
-How to Drop Into Any Repo
-bash# 1. Copy the agent files into your target repo
+---
+
+## How to Drop Into Any Repo
+
+```bash
+# 1. Copy the agent files into your target repo
 cp -r repo-time-machine-agent/ your-project/
 
 # 2. Go into your project
@@ -22,12 +26,26 @@ cp .env.example .env
 npm run ask "How has this project evolved?"
 npm run ask "Which commit introduced the bug?"
 npm run ask "What should be refactored?"
-The agent automatically reads the git history of whichever repo it lives in — no configuration needed.
+```
 
-What It Does
-Ask it...Skill Used"How has this project evolved?"history-explainer"Which commit introduced this bug?"bug-origin-finder"What architectural changes happened?"architecture-evolution"Which files should be refactored?"refactor-suggester
+The agent automatically reads the git history of **whichever repo it lives in** — no configuration needed.
 
-Project Structure
+---
+
+## What It Does
+
+| Ask it...                                    | Skill Used              |
+|----------------------------------------------|-------------------------|
+| "How has this project evolved?"              | history-explainer       |
+| "Which commit introduced this bug?"          | bug-origin-finder       |
+| "What architectural changes happened?"       | architecture-evolution  |
+| "Which files should be refactored?"          | refactor-suggester      |
+
+---
+
+## Project Structure
+
+```
 your-repo/                        ← any git repo
 ├── agent.yaml                    ← agent metadata
 ├── SOUL.md                       ← agent personality
@@ -47,27 +65,43 @@ your-repo/                        ← any git repo
     │   └── mockData.js           ← mock data for testing
     └── claude/
         └── claudeClient.js       ← Groq API client
+```
 
-Configuration
-VariableDefaultDescriptionGROQ_API_KEYrequiredGet free at console.groq.comUSE_MOCKfalseSet to true to use fake TaskFlow data instead of real repo
+---
 
-Run the Demo (no real repo needed)
-bash# Uses built-in mock "TaskFlow" project data
+## Configuration
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `GROQ_API_KEY` | required | Get free at [console.groq.com](https://console.groq.com) |
+| `USE_MOCK` | `false` | Set to `true` to use fake TaskFlow data instead of real repo |
+
+---
+
+## Run the Demo (no real repo needed)
+
+```bash
+# Uses built-in mock "TaskFlow" project data
 USE_MOCK=true npm run demo
+```
 
-Get a Free Groq API Key
+---
 
-Go to console.groq.com
-Sign in with Google or GitHub
-Click API Keys → Create API Key
-Paste it into your .env file
+## Get a Free Groq API Key
 
-Groq's free tier gives you 14,400 requests/day — no credit card needed.
+1. Go to [console.groq.com](https://console.groq.com)
+2. Sign in with Google or GitHub
+3. Click **API Keys** → **Create API Key**
+4. Paste it into your `.env` file
 
-Built With
+Groq's free tier gives you **14,400 requests/day** — no credit card needed.
 
-Groq (LLaMA 3.3 70B) — free AI inference
-simple-git — git history reading
-Node.js — runtime (v16+)
-gitagent standard — agent structure
-gitclaw runtime — agent execution
+---
+
+## Built With
+
+- **Groq** (LLaMA 3.3 70B) — free AI inference
+- **simple-git** — git history reading
+- **Node.js** — runtime (v16+)
+- **gitagent standard** — agent structure
+- **gitclaw runtime** — agent execution
